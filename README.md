@@ -16,7 +16,10 @@ The web.config in this project should be modified for testing hosting scenarios.
 There is a rudamentary transform provided for web.config.release for publishing to CF.
 
 ### PocPCFService.Consumer
-This is an ASP.NET WebApi project whose `ValuesController` calls the endpoint hosted by *PocPCFService.Host*.  
+This is an ASP.NET WebApi project whose `ValuesController` calls the endpoint hosted by `PocPCFService.Host`.  
 This project references the PocPCFService WCF Library and uses the shared interface IPocPCFService to define a service client.
 The web.config in this project should have the endpoint defined in `system.serviceModel/client` pointed at the service under test.  
+
+### Hosting Requirements
+All samples above are intended for Windows environments with IIS and full .NET Framework.  IIS is required due to the use of `net.tcp` bindings; IIS express can be used by replacing the `net.tcp` bindings with `http` bindings such as `basicHttpBinding`.
 
